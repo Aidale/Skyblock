@@ -1,0 +1,36 @@
+{"blocks": 
+[
+	{
+		"block": "stone",
+		"texture": "stone"
+	},
+	{
+		"block": "grass",
+		"texture":
+		{
+			"top": "grassblock_top", 
+			"bottom": "dirt", 
+			"side": "grassblock_side"
+		}
+	},
+	{
+		"block": "dirt",
+		"texture": "dirt"
+	},
+	{
+		"block": "bedrock",
+		"texture": "bedrock"
+	},
+	{
+		"block": "sand",
+		"texture": "sand"
+	},
+	{
+		"block": "gravel",
+		"texture": "gravel"
+	},
+	{
+		"block": "water",
+		"texture": "water"
+	}
+]}
