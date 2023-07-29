@@ -1,0 +1,35 @@
+#version 330
+
+in vec2 pass_textureCoords;
+
+out vec4 out_color;
+
+uniform vec3 color;
+uniform bool shadow;
+uniform bool highlight;
+
+uniform sampler2D fontAtlas;
+
+const vec2 referenceShift = vec2(0.001953125, 0.001953125);
+
+void main(void)
+{
+	vec4 colorHere = texture(fontAtlas, pass_textureCoords);
+	bool opaqueHere = colorHere.a == 1;
+	
+	out_color = vec4(color, colorHere.a);
+	
+	if (!opaqueHere && highlight)
+	{
+		out_color = vec4(0.3125, 0.3125, 0.3125, 0.565);
+	}
+	
+	if (shadow)
+	{
+		vec4 colorShifted = texture(fontAtlas, pass_textureCoords - referenceShift);
+		if (opaqueHere && colorShifted.a == 1)
+		{
+			out_color = vec4(color * 0.37, 1);
+		}
+	}
+}
